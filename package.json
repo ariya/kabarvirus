@@ -4,10 +4,20 @@
   "description": "KabarVirus.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run check-format",
+    "check-format": "prettier --check \"**/*.js\"",
+    "format-code": "prettier --write \"**/*.js\""
   },
   "author": "Ariya Hidayat",
   "devDependencies": {
     "prettier": "^2.0.2"
+  },
+  "prettier": {
+    "tabWidth": 4,
+    "printWidth": 120,
+    "singleQuote": true,
+    "quoteProps": "consistent",
+    "singleQuote": true,
+    "trailingComma": "none"
   }
 }
