@@ -10,6 +10,7 @@
   },
   "author": "Ariya Hidayat",
   "devDependencies": {
+    "chokidar": "^3.3.1",
     "live-server": "^1.2.1",
     "prettier": "^2.0.2"
   },
