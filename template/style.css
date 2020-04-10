@@ -1,0 +1,35 @@
+/* Standard elements */
+
+html {
+    margin: 0;
+    padding: 0 .5em;
+    background: #fff;
+    color: #000;
+    line-height: 1.5;
+    font-size: 18px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0.25em;
+    max-width: 780px;
+}
+
+section {
+    margin: .5em 0;
+}
+
+button {
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    font-size: 0.833rem;
+    border: 1px solid rgb(0, 0, 0, 0.2);
+    border-radius: 4px
+}
+
+footer {
+    font-size: .833em;
+    margin-top: 1.5em;
+}
