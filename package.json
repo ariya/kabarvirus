@@ -2,7 +2,7 @@
   "name": "kabarvirus",
   "version": "1.0.0",
   "description": "KabarVirus.com",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "npm run check-format",
     "check-format": "prettier --check \"**/*.js\"",
