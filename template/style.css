@@ -76,6 +76,10 @@ footer {
     color: #555
 }
 
+table.stripey tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
 /* Specific modifiers */
 
 section#stat {
@@ -96,4 +100,13 @@ span#recovered {
 span#fatal {
     border: 1px solid #ffb4b4;
     background-color: #ffe0e0
+}
+
+section#details table td:nth-child(2) {
+    text-align: right;
+}
+
+section#details table td:nth-child(3) {
+    text-align: right;
+    font-weight: 700;
 }

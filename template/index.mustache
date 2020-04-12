@@ -22,6 +22,19 @@
 </table>
 </section>
 
+<section id="details">
+<table id="provinces" class="stripey">
+<thead>
+<tr><td></td><td>Positif</td><td>Meninggal</td></tr>
+</thead>
+<tbody>
+{{#stats.regions}}
+<tr><td>{{name}}</td><td>{{numbers.infected}}</td><td>{{numbers.fatal}}</td></tr>
+{{/stats.regions}}
+</tbody>
+</table>
+</section>
+
 {{{include.footer}}}
 </body>
 </html>
