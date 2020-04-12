@@ -4,6 +4,7 @@ const fs = require('fs');
 
 const cleanCSS = require('clean-css');
 const mustache = require('mustache');
+const uglifyJS = require('uglify-js');
 
 function generate() {
     let stats = JSON.parse(fs.readFileSync('indonesia.json', 'utf-8').toString());
@@ -19,7 +20,9 @@ function generate() {
         let content = fs.readFileSync(filename, 'utf-8').toString();
         const key = name.replace('.mustache', '').replace('.', '-');
         include[key] = content;
-        if (name.indexOf('.css') > 0) {
+        if (name.indexOf('.js') > 0) {
+            content = uglifyJS.minify(content).code;
+        } else if (name.indexOf('.css') > 0) {
             const process = new cleanCSS({}).minify(content);
             content = process.styles;
         }
