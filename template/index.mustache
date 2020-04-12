@@ -8,6 +8,20 @@
 </head>
 <body>
 {{{include.header}}}
+
+<section id="stat">
+<table>
+<thead><tr><td>Positif</td><td>Sembuh</td><td>Meninggal</td></tr></thead>
+<tbody>
+<tr class="appear monospace">
+<td><span class="box" id="infected">{{stats.numbers.infected}}</span></td>
+<td><span class="box" id="recovered">{{stats.numbers.recovered}}</span></td>
+<td><span class="box" id="fatal">{{stats.numbers.fatal}}</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+
 {{{include.footer}}}
 </body>
 </html>

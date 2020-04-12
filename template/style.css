@@ -29,7 +29,71 @@ button {
     border-radius: 4px
 }
 
+table {
+    width: 100%;
+    padding: .5em;
+    border-spacing: 0;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    border: 1px solid #eee
+}
+
+table td {
+    padding: 5px
+}
+
 footer {
     font-size: .833em;
     margin-top: 1.5em;
+}
+
+/* Generic modifiers */
+
+.monospace {
+    font-family: Consolas, 'Roboto Mono', Monaco, Menlo, Courier, monospace
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.appear {
+    animation: appear .5s;
+}
+
+.box {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 125%;
+    font-weight: 800;
+    color: #555
+}
+
+/* Specific modifiers */
+
+section#stat {
+    text-align: center;
+    line-height: 200%;
+}
+
+span#infected {
+    border: 1px solid #ffd1b4;
+    background-color: #ffeae0
+}
+
+span#recovered {
+    border: 1px solid #91dcbd;
+    background-color: #d3eee3
+}
+
+span#fatal {
+    border: 1px solid #ffb4b4;
+    background-color: #ffe0e0
 }
