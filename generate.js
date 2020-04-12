@@ -8,6 +8,9 @@ const mustache = require('mustache');
 function generate() {
     let stats = JSON.parse(fs.readFileSync('indonesia.json', 'utf-8').toString());
     stats.regions = stats.regions.sort((p, q) => q.numbers.infected - p.numbers.infected);
+    stats.regions.forEach((prov) => {
+        prov.id = prov.name.replace(/\s/g, '').toLowerCase();
+    });
 
     const include = {};
     const fnames = ['meta.mustache', 'header.mustache', 'footer.mustache', 'style.css', 'filter.js'];

@@ -21,6 +21,15 @@ section {
     margin: .5em 0;
 }
 
+input[type=text] {
+    -webkit-appearance: none;
+    font-size: 1em;
+    width: 100%;
+    padding: 0.4em;
+    border: 1px solid rgb(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
 button {
     margin: 1em 0;
     padding: 0.5em 1em;
@@ -114,6 +123,10 @@ span#recovered {
 span#fatal {
     border: 1px solid #ffb4b4;
     background-color: #ffe0e0
+}
+
+input#search {
+    max-width: 8em;
 }
 
 section#details table td:nth-child(2) {

@@ -25,11 +25,13 @@
 <section id="details">
 <table id="provinces" class="stripey">
 <thead>
-<tr><td></td><td>Positif</td><td>Meninggal</td></tr>
+<tr>
+<td id="filter"><input class="nodisplay" type="text" autocomplete="off" id="search" placeholder="Cari provinsi" spellcheck="false"></td>
+<td>Positif</td><td>Meninggal</td></tr>
 </thead>
 <tbody>
 {{#stats.regions}}
-<tr><td>{{name}}</td><td>{{numbers.infected}}</td><td>{{numbers.fatal}}</td></tr>
+<tr id="{{id}}"><td>{{name}}</td><td>{{numbers.infected}}</td><td>{{numbers.fatal}}</td></tr>
 {{/stats.regions}}
 </tbody>
 </table>
