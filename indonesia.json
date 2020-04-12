@@ -1,0 +1,317 @@
+{
+  "name": "Indonesia",
+  "type": "country",
+  "numbers": {
+    "infected": 0,
+    "recovered": 0,
+    "fatal": 0
+  },
+  "regions": [
+    {
+      "name": "Aceh",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Bali",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Banten",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Bengkulu",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "DI Yogyakarta",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "DKI Jakarta",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Gorontalo",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Jambi",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Jawa Barat",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Jawa Tengah",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Jawa Timur",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Kalimantan Barat",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Kalimantan Selatan",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Kalimantan Tengah",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Kalimantan Timur",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Kalimantan Utara",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Kepulauan Bangka Belitung",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Kepulauan Riau",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Lampung",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Maluku",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Maluku Utara",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Nusa Tenggara Barat",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Nusa Tenggara Timur",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Papua",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Papua Barat",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Riau",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Sulawesi Barat",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Sulawesi Selatan",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Sulawesi Tengah",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Sulawesi Tenggara",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Sulawesi Utara",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Sumatera Barat",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Sumatera Selatan",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    },
+    {
+      "name": "Sumatera Utara",
+      "type": "province",
+      "numbers": {
+        "infected": 0,
+        "recovered": 0,
+        "fatal": 0
+      }
+    }
+  ]
+}
