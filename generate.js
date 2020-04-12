@@ -10,7 +10,7 @@ function generate() {
     stats.regions = stats.regions.sort((p, q) => q.numbers.infected - p.numbers.infected);
 
     const include = {};
-    const fnames = ['meta.mustache', 'header.mustache', 'footer.mustache', 'style.css'];
+    const fnames = ['meta.mustache', 'header.mustache', 'footer.mustache', 'style.css', 'filter.js'];
     fnames.forEach((name) => {
         const filename = `template/${name}`;
         let content = fs.readFileSync(filename, 'utf-8').toString();

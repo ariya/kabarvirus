@@ -49,6 +49,10 @@ footer {
 
 /* Generic modifiers */
 
+.nodisplay {
+    display: none
+}
+
 .monospace {
     font-family: Consolas, 'Roboto Mono', Monaco, Menlo, Courier, monospace
 }
@@ -74,6 +78,16 @@ footer {
     font-size: 125%;
     font-weight: 800;
     color: #555
+}
+
+button.primary {
+    background-color: #0074D9;
+    color: #fff;
+}
+
+button.outline {
+    background-color: #fff;
+    color: #333
 }
 
 table.stripey tr:nth-child(even) {
@@ -109,4 +123,12 @@ section#details table td:nth-child(2) {
 section#details table td:nth-child(3) {
     text-align: right;
     font-weight: 700;
+}
+
+section#details table.selective tr {
+    display: none
+}
+
+section#details table.selective tr:nth-child(-n+7) {
+    display: table-row
 }
