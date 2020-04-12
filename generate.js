@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 
+const cleanCSS = require('clean-css');
 const mustache = require('mustache');
 
 function generate() {
@@ -11,6 +12,11 @@ function generate() {
         const filename = `template/${name}`;
         let content = fs.readFileSync(filename, 'utf-8').toString();
         const key = name.replace('.mustache', '').replace('.', '-');
+        include[key] = content;
+        if (name.indexOf('.css') > 0) {
+            const process = new cleanCSS({}).minify(content);
+            content = process.styles;
+        }
         include[key] = content;
     });
 
