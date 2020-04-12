@@ -14,7 +14,8 @@
     "clean-css": "^4.2.3",
     "live-server": "^1.2.1",
     "mustache": "^4.0.1",
-    "prettier": "^2.0.2"
+    "prettier": "^2.0.2",
+    "uglify-js": "^3.8.1"
   },
   "prettier": {
     "tabWidth": 4,
