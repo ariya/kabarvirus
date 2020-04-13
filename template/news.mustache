@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="id">
+<head>
+<title>KabarVirus.com</title>
+{{{include.meta}}}
+<style>
+{{{include.style-css}}}
+</style>
+</head>
+<body>
+
+<p>&#x290E; Kembali ke <a href="/">beranda</a></p>
+
+<section class="news">
+<h2 class="appear">Himpunan berita terkait COVID-19</h2>
+<ul>
+{{#news}}
+<li><a target="_blank" rel="noopener noreferrer" href="{{url}}">{{title}}</a></li>
+{{/news}}
+</ul>
+</section>
+
+{{{include.footer}}}
+</body>
+</html>

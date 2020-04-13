@@ -13,6 +13,20 @@ function generate() {
         prov.id = prov.name.replace(/\s/g, '').toLowerCase();
     });
 
+    /* news is an array of object, each with `title` and `url` properties.
+       Example:
+         [
+           {
+            "title": "Pemerintah Setujui Status PSBB untuk Tangerang dan Tangsel",
+            "url": "https://nasional.tempo.co/read/1330740/pemerintah-setujui-status-psbb-untuk-tangerang-dan-tangsel"
+           }
+        ]
+    */
+    let news = [];
+    if (fs.existsSync('news.json')) {
+        news = JSON.parse(fs.readFileSync('news.json', 'utf-8').toString());
+    }
+
     const include = {};
     const fnames = ['meta.mustache', 'header.mustache', 'footer.mustache', 'style.css', 'animation.js', 'filter.js'];
     fnames.forEach((name) => {
@@ -34,6 +48,17 @@ function generate() {
     const intermediateIndex = mustache.render(indexTemplate, indexData);
     const indexHtml = mustache.render(intermediateIndex, indexData);
     fs.writeFileSync('public/index.html', indexHtml);
+
+    const newsData = { include, news };
+    const newsTemplate = fs.readFileSync('template/news.mustache', 'utf-8').toString();
+    const intermediateNews = mustache.render(newsTemplate, newsData);
+    const newsHtml = mustache.render(intermediateNews, newsData);
+    try {
+        fs.mkdirSync('public/berita');
+    } catch (e) {
+        // ignore, directory already exists
+    }
+    fs.writeFileSync('public/berita/index.html', newsHtml);
 }
 
 module.exports = generate;

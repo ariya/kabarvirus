@@ -17,6 +17,11 @@ body {
     max-width: 780px;
 }
 
+h2 {
+    font-size: 1.2em;
+    color: #555
+}
+
 section {
     margin: .5em 0;
 }
@@ -144,4 +149,27 @@ section#details table.selective tr {
 
 section#details table.selective tr:nth-child(-n+7) {
     display: table-row
+}
+
+section.news {
+    margin-top: 1em;
+    padding: 0 0.5em
+}
+
+section.news li {
+    line-height: 1.8
+}
+
+section.news ul {
+    line-height: 1.8;
+    list-style: none;
+    padding-left: 0;
+}
+
+section.news li::before {
+    content: "\203a";
+    color: #777;
+    display: inline-block;
+    width: 0.8em;
+    margin-left: 0;
 }
