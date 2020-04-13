@@ -1,5 +1,10 @@
 # KabarVirus
 
+[![GitHub license](https://img.shields.io/github/license/ariya/kabarvirus)](https://github.com/ariya/kabarvirus/blob/master/LICENSE)
+[![Build Status](https://dev.azure.com/ariyahidayat/OpenSource/_apis/build/status/ariya.kabarvirus?branchName=master)](https://dev.azure.com/ariyahidayat/OpenSource/_build/latest?definitionId=25&branchName=master)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ariya/kabarvirus)
+[![Website](https://img.shields.io/website?up_message=kabarvirus.com&url=https://kabarvirus.com)](https://kabarvirus.com)
+
 [Bahasa Indonesia](#indonesian) | [English](#english)
 
 ---
