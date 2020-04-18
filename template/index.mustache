@@ -40,6 +40,17 @@
 </section>
 <script>{{{include.filter-js}}}</script>
 
+{{#preview}}
+<section class="news">
+<p>Berita terkait (<a href="/berita">selengkapnya</a>):</p>
+{{#snippets}}
+<ul>
+<li><a target="_blank" rel="noopener noreferrer" href="{{url}}">{{title}}</a></li>
+{{/snippets}}
+</ul>
+</section>
+{{/preview}}
+
 {{{include.footer}}}
 </body>
 </html>

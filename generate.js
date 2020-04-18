@@ -43,7 +43,9 @@ function generate() {
         include[key] = content;
     });
 
-    const indexData = { include, stats };
+    const preview = news.length >= 3;
+    const snippets = preview ? news.slice(0, 3) : [];
+    const indexData = { include, stats, preview, snippets };
     const indexTemplate = fs.readFileSync('template/index.mustache', 'utf-8').toString();
     const intermediateIndex = mustache.render(indexTemplate, indexData);
     const indexHtml = mustache.render(intermediateIndex, indexData);
