@@ -4,6 +4,7 @@
   "description": "KabarVirus.com",
   "main": "server.js",
   "scripts": {
+    "generate": "node generate.js",
     "test": "npm run check-format",
     "check-format": "prettier --check \"**/*.js\"",
     "format-code": "prettier --write \"**/*.js\""

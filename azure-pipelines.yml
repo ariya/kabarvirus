@@ -13,5 +13,5 @@ steps:
 - script: npm test
   displayName: 'npm test'
 
-- script: node generate.js
+- script: node run generate
   displayName: 'Generate the site'
