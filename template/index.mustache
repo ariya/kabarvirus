@@ -36,15 +36,15 @@
 {{/stats.regions}}
 </tbody>
 </table>
-<button id="selective" class="primary nodisplay"></button>
+<button type="button" id="selective" class="primary nodisplay"></button>
 </section>
 <script>{{{include.filter-js}}}</script>
 
 {{#preview}}
 <section class="news">
 <p>Berita terkait (<a href="/berita">selengkapnya</a>):</p>
-{{#snippets}}
 <ul>
+{{#snippets}}
 <li><a target="_blank" rel="noopener noreferrer" href="{{url}}">{{title}}</a></li>
 {{/snippets}}
 </ul>
