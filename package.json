@@ -18,6 +18,7 @@
   "devDependencies": {
     "chokidar": "^3.3.1",
     "clean-css": "^4.2.3",
+    "html-validate": "^2.20.0",
     "live-server": "^1.2.1",
     "mustache": "^4.0.1",
     "prettier": "^2.0.2",
