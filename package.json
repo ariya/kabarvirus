@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "generate": "node generate.js",
-    "test": "npm run check-format",
+    "test": "npm run validate && npm run check-format",
+    "validate": "html-validate \"public/**/*.html\"",
     "check-format": "prettier --check \"**/*.js\"",
     "format-code": "prettier --write \"**/*.js\""
   },
