@@ -7,7 +7,8 @@ const mustache = require('mustache');
 const uglifyJS = require('uglify-js');
 
 function generate() {
-    let stats = JSON.parse(fs.readFileSync('indonesia.json', 'utf-8').toString());
+    let stats = JSON.parse(fs.readFileSync('national.json', 'utf-8').toString());
+    stats.regions = JSON.parse(fs.readFileSync('provinces.json', 'utf-8').toString());
     stats.regions = stats.regions.sort((p, q) => q.numbers.infected - p.numbers.infected);
     stats.regions.forEach((prov) => {
         prov.id = prov.name.replace(/\s/g, '').toLowerCase();

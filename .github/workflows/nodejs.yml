@@ -21,6 +21,8 @@ jobs:
 
     - run: npm ci
 
+    - run: npm run grab-data && cat national.json
+
     - run: npm run generate
 
     - run: npm test

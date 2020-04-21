@@ -20,16 +20,20 @@ Tujuan KabarVirus adalah untuk menyajikan informasi _terpenting_ soal sebaran CO
 * _Load time_ (menurut [Pingdom](https://tools.pingdom.com/)): 0,7 detik atau kurang
 * Tetap berfungsi walaupun JavaScript dimatikan
 
-Yang diperlukan: Node.js versi 10 atau yang lebih baru.
+Yang diperlukan (versi minimum):
+* [Node.js](https://nodejs.org) versi 10
+* [curl](https://curl.haxx.se) versi 7.58
+* [jq](https://stedolan.github.io/jq/) versi 1.5
 
 ```
 npm install
+npm run grab-data
 npm start
 ```
 
 lalu buka alamat `localhost:8080`.
 
-**CATATAN**: Berkas data `indonesia.json` harus Anda isi sendiri! Dalam contoh di repositori ini, isinya dibuat kosong (semua nilai adalah `0`). Bagaimana cara berburu data (yang tepat) tidak termasuk dalam lingkup proyek ini. Silakan cari dari instansi terkait maupun menggunakan layanan API kesayangan masing-masing.
+**CATATAN**: Data paparan COVID-19 diekstrak (melalui tahapan `npm run grab-data`) dari [dashboard resmi ArcGIS milik BNPB](https://inacovid19.maps.arcgis.com) (Badan Nasional Penanggulangan Bencana).
 
 <hr>
 
@@ -44,14 +48,19 @@ The goal of KabarVirus is to show the _important_ aspect of COVID-19 spread in I
 * _Load time_ (according [Pingdom](https://tools.pingdom.com/)): 0.7 sec or less
 * Graceful degradation when JavaScript is disabled
 
-Requirement: Node.js version 10 or newer.
+Minimum requirements:
+* [Node.js](https://nodejs.org) version 10
+* [curl](https://curl.haxx.se) version 7.58
+* [jq](https://stedolan.github.io/jq/) version 1.5
+
 
 
 ```
 npm install
+npm run grab-data
 npm start
 ```
 
 and then open `localhost:8080`.
 
-**NOTE**: You must fill the data file `indonesia.json`! A sample empty file (i.e. every number set to `0`) is included here. How to hunt for the accurate data is outside of the scope of this project. Please consult the proper agencies and/or use your favorite API services.
+**NOTE**: The information on COVID-19 spread is extracted (via `npm run grab-data`) from [the official ArcGIS dashboard of BNPB](https://inacovid19.maps.arcgis.com/) (National Disaster Mitigation Agency).
