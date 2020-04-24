@@ -44,9 +44,29 @@ function generate() {
         include[key] = content;
     });
 
+    let timestamp = null;
+    if (fs.existsSync('update.timestamp')) {
+        const updateContent = fs.readFileSync('update.timestamp', 'utf-8').toString();
+        const unixEpoch = parseInt(updateContent, 10);
+        if (Number.isNaN(unixEpoch)) {
+            console.error('Invalid update timestamp', updateContent);
+        } else {
+            const updateDateTime = new Date(unixEpoch + 14 * 60 * 60 * 1000);
+            const monthNames = 'JanFebMarAprMeiJunJulAgtSepOktNovDes';
+            let minutes = updateDateTime.getMinutes().toString();
+            if (minutes.length < 2) minutes = '0' + minutes;
+            timestamp = [
+                updateDateTime.getDate(),
+                monthNames.substr(3 * updateDateTime.getMonth(), 3),
+                updateDateTime.getHours() + ':' + minutes,
+                'WIB'
+            ].join(' ');
+        }
+    }
+
     const preview = news.length >= 3;
     const snippets = preview ? news.slice(0, 3) : [];
-    const indexData = { include, stats, preview, snippets };
+    const indexData = { timestamp, include, stats, preview, snippets };
     const indexTemplate = fs.readFileSync('template/index.mustache', 'utf-8').toString();
     const intermediateIndex = mustache.render(indexTemplate, indexData);
     const indexHtml = mustache.render(intermediateIndex, indexData);
