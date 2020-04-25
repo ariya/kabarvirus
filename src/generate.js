@@ -46,12 +46,13 @@ function generate() {
 
     let timestamp = null;
     if (fs.existsSync('update.timestamp')) {
-        const updateContent = fs.readFileSync('update.timestamp', 'utf-8').toString();
+        const updateContent = fs.readFileSync('update.timestamp', 'utf-8').toString().trim();
         const unixEpoch = parseInt(updateContent, 10);
         if (Number.isNaN(unixEpoch)) {
             console.error('Invalid update timestamp', updateContent);
         } else {
-            const updateDateTime = new Date(unixEpoch + 14 * 60 * 60 * 1000);
+            const jakartaTZOffset = 7;
+            const updateDateTime = new Date(unixEpoch + jakartaTZOffset * 60 * 60 * 1000);
             const monthNames = 'JanFebMarAprMeiJunJulAgtSepOktNovDes';
             let minutes = updateDateTime.getMinutes().toString();
             if (minutes.length < 2) minutes = '0' + minutes;
