@@ -163,13 +163,18 @@ section.news li {
 section.news ul {
     line-height: 1.8;
     list-style: none;
-    padding-left: 0;
+    padding-left: 1em;
+}
+
+section.news ul, section.news li {
+    text-indent: -0.4em;
+    list-style-position: inside;
 }
 
 section.news li::before {
     content: "\203a";
     color: #777;
     display: inline-block;
-    width: 0.8em;
+    width: 0.4em;
     margin-left: 0;
 }
