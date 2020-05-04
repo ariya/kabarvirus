@@ -92,8 +92,8 @@ function generate() {
 }
 
 function numberWithDot(value) {
-  // Adapted from https://stackoverflow.com/a/2901298/2399252
-  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    // Adapted from https://stackoverflow.com/a/2901298/2399252
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
 
 module.exports = generate;
