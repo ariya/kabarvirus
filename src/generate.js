@@ -8,10 +8,16 @@ const uglifyJS = require('uglify-js');
 
 function generate() {
     let stats = JSON.parse(fs.readFileSync('national.json', 'utf-8').toString());
+    stats.numbers.infected = numberWithDot(stats.numbers.infected);
+    stats.numbers.fatal = numberWithDot(stats.numbers.fatal);
+    stats.numbers.recovered = numberWithDot(stats.numbers.recovered);
     stats.regions = JSON.parse(fs.readFileSync('provinces.json', 'utf-8').toString());
     stats.regions = stats.regions.sort((p, q) => q.numbers.infected - p.numbers.infected);
     stats.regions.forEach((prov) => {
         prov.id = prov.name.replace(/\s/g, '').toLowerCase();
+        prov.numbers.infected = numberWithDot(prov.numbers.infected);
+        prov.numbers.fatal = numberWithDot(prov.numbers.fatal);
+        prov.numbers.recovered = numberWithDot(prov.numbers.recovered);
     });
 
     /* news is an array of object, each with `title` and `url` properties.
@@ -83,6 +89,11 @@ function generate() {
         // ignore, directory already exists
     }
     fs.writeFileSync('public/berita/index.html', newsHtml);
+}
+
+function numberWithDot(value) {
+  // Adapted from https://stackoverflow.com/a/2901298/2399252
+  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 module.exports = generate;
