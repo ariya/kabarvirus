@@ -74,6 +74,7 @@ function generate() {
     stats.regions = stats.regions.sort((p, q) => q.numbers.infected - p.numbers.infected);
     stats.regions.forEach((prov) => {
         prov.numbers = format(prov.numbers);
+        prov.name = prov.name.replace('Daerah Istimewa', 'DI');
         prov.id = prov.name.replace(/\s/g, '').toLowerCase();
     });
     const preview = news.length >= 3;
