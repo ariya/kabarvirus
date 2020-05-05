@@ -91,7 +91,8 @@ footer {
     border-radius: 4px;
     font-size: 125%;
     font-weight: 800;
-    color: #555
+    color: #555;
+    border: 1px solid;
 }
 
 button.primary {
@@ -115,18 +116,18 @@ section#stat {
     line-height: 200%;
 }
 
-span#infected {
-    border: 1px solid #ffd1b4;
+#infected {
+    border-color: #ffd1b4;
     background-color: #ffeae0
 }
 
-span#recovered {
-    border: 1px solid #91dcbd;
+#recovered {
+    border-color: #91dcbd;
     background-color: #d3eee3
 }
 
-span#fatal {
-    border: 1px solid #ffb4b4;
+#fatal {
+    border-color: #ffb4b4;
     background-color: #ffe0e0
 }
 
