@@ -7,18 +7,8 @@ const mustache = require('mustache');
 const uglifyJS = require('uglify-js');
 
 function generate() {
-    let stats = JSON.parse(fs.readFileSync('national.json', 'utf-8').toString());
-    stats.numbers.infected = numberWithDot(stats.numbers.infected);
-    stats.numbers.fatal = numberWithDot(stats.numbers.fatal);
-    stats.numbers.recovered = numberWithDot(stats.numbers.recovered);
-    stats.regions = JSON.parse(fs.readFileSync('provinces.json', 'utf-8').toString());
-    stats.regions = stats.regions.sort((p, q) => q.numbers.infected - p.numbers.infected);
-    stats.regions.forEach((prov) => {
-        prov.id = prov.name.replace(/\s/g, '').toLowerCase();
-        prov.numbers.infected = numberWithDot(prov.numbers.infected);
-        prov.numbers.fatal = numberWithDot(prov.numbers.fatal);
-        prov.numbers.recovered = numberWithDot(prov.numbers.recovered);
-    });
+    const nationalStats = JSON.parse(fs.readFileSync('national.json', 'utf-8').toString());
+    const provincesStats = JSON.parse(fs.readFileSync('provinces.json', 'utf-8').toString());
 
     /* news is an array of object, each with `title` and `url` properties.
        Example:
@@ -71,6 +61,21 @@ function generate() {
         }
     }
 
+    function format(numbers) {
+        ['infected', 'recovered', 'fatal'].forEach((key) => {
+            // Adapted from https://stackoverflow.com/a/2901298/2399252
+            numbers[key] = numbers[key].toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        });
+        return numbers;
+    }
+
+    const stats = { ...nationalStats, regions: provincesStats };
+    stats.numbers = format(stats.numbers);
+    stats.regions = stats.regions.sort((p, q) => q.numbers.infected - p.numbers.infected);
+    stats.regions.forEach((prov) => {
+        prov.numbers = format(prov.numbers);
+        prov.id = prov.name.replace(/\s/g, '').toLowerCase();
+    });
     const preview = news.length >= 3;
     const snippets = preview ? news.slice(0, 3) : [];
     const indexData = { timestamp, include, stats, preview, snippets };
@@ -89,11 +94,6 @@ function generate() {
         // ignore, directory already exists
     }
     fs.writeFileSync('public/berita/index.html', newsHtml);
-}
-
-function numberWithDot(value) {
-    // Adapted from https://stackoverflow.com/a/2901298/2399252
-    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
 
 module.exports = generate;
