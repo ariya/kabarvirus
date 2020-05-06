@@ -6,6 +6,14 @@ const cleanCSS = require('clean-css');
 const mustache = require('mustache');
 const uglifyJS = require('uglify-js');
 
+function mkdirp(dirname) {
+    try {
+        fs.mkdirSync(dirname);
+    } catch (e) {
+        // ignore, directory already exists
+    }
+}
+
 function generate() {
     const nationalStats = JSON.parse(fs.readFileSync('national.json', 'utf-8').toString());
     const provincesStats = JSON.parse(fs.readFileSync('provinces.json', 'utf-8').toString());
@@ -89,11 +97,7 @@ function generate() {
     const newsTemplate = fs.readFileSync('template/news.mustache', 'utf-8').toString();
     const intermediateNews = mustache.render(newsTemplate, newsData);
     const newsHtml = mustache.render(intermediateNews, newsData);
-    try {
-        fs.mkdirSync('public/berita');
-    } catch (e) {
-        // ignore, directory already exists
-    }
+    mkdirp('public/berita');
     fs.writeFileSync('public/berita/index.html', newsHtml);
 }
 
