@@ -23,6 +23,7 @@
 </section>
 <script>{{{include.animation-js}}}</script>
 
+{{#hasProvincesStats}}
 <section id="details">
 <table id="provinces" class="stripey">
 <thead>
@@ -39,6 +40,7 @@
 <button type="button" id="selective" class="primary nodisplay"></button>
 </section>
 <script>{{{include.filter-js}}}</script>
+{{/hasProvincesStats}}
 
 {{#preview}}
 <section class="news">

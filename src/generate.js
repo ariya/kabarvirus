@@ -16,7 +16,9 @@ function mkdirp(dirname) {
 
 function generate() {
     const nationalStats = JSON.parse(fs.readFileSync('national.json', 'utf-8').toString());
-    const provincesStats = JSON.parse(fs.readFileSync('provinces.json', 'utf-8').toString());
+
+    const hasProvincesStats = fs.existsSync('provinces.json');
+    const provincesStats = hasProvincesStats ? JSON.parse(fs.readFileSync('provinces.json', 'utf-8').toString()) : [];
 
     /* news is an array of object, each with `title` and `url` properties.
        Example:
@@ -85,9 +87,10 @@ function generate() {
         prov.name = prov.name.replace('Daerah Istimewa', 'DI');
         prov.id = prov.name.replace(/\s/g, '').toLowerCase();
     });
-    const preview = news.length >= 3;
-    const snippets = preview ? news.slice(0, 3) : [];
-    const indexData = { timestamp, include, stats, preview, snippets };
+    const previewCount = hasProvincesStats ? 3 : 10;
+    const preview = news.length >= previewCount;
+    const snippets = preview ? news.slice(0, previewCount) : [];
+    const indexData = { timestamp, include, stats, hasProvincesStats, preview, snippets };
     const indexTemplate = fs.readFileSync('template/index.mustache', 'utf-8').toString();
     const intermediateIndex = mustache.render(indexTemplate, indexData);
     const indexHtml = mustache.render(intermediateIndex, indexData);
