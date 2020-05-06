@@ -86,6 +86,13 @@ footer {
     animation: appear .5s;
 }
 
+.home {
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 150%;
+    position: absolute;
+}
+
 .box {
     padding: 4px 10px;
     border-radius: 4px;

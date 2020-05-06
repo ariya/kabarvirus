@@ -15,10 +15,28 @@ function mkdirp(dirname) {
 }
 
 function generate() {
-    const nationalStats = JSON.parse(fs.readFileSync('national.json', 'utf-8').toString());
+    const metadata = JSON.parse(fs.readFileSync('metadata.json', 'utf-8').toString());
+    Object.keys(metadata).forEach((key) => {
+        const region = metadata[key];
+        const match = /([a-z]+)prov/.exec(region.website);
+        if (match && match.length === 2 && region.slug !== match[1])
+            console.warn(`Incompatible slug (perhaps website has changed?): ${region.slug} vs ${match[1]}`);
+    });
 
+    const nationalStats = JSON.parse(fs.readFileSync('national.json', 'utf-8').toString());
     const hasProvincesStats = fs.existsSync('provinces.json');
-    const provincesStats = hasProvincesStats ? JSON.parse(fs.readFileSync('provinces.json', 'utf-8').toString()) : [];
+    const provincesStats = !hasProvincesStats
+        ? []
+        : JSON.parse(fs.readFileSync('provinces.json', 'utf-8').toString())
+              .sort((p, q) => q.numbers.infected - p.numbers.infected)
+              .map((p) => {
+                  return {
+                      type: p.type,
+                      name: p.name.replace('Daerah Istimewa', 'DI').replace('Kepulauan', 'Kep.'),
+                      numbers: p.numbers
+                  };
+              });
+    const allHospitals = JSON.parse(fs.readFileSync('hospitals.json', 'utf-8').toString());
 
     /* news is an array of object, each with `title` and `url` properties.
        Example:
@@ -81,11 +99,11 @@ function generate() {
 
     const stats = { ...nationalStats, regions: provincesStats };
     stats.numbers = format(stats.numbers);
-    stats.regions = stats.regions.sort((p, q) => q.numbers.infected - p.numbers.infected);
     stats.regions.forEach((prov) => {
+        const name = prov.name;
+        prov.url = '/' + metadata[name].slug + '/';
         prov.numbers = format(prov.numbers);
-        prov.name = prov.name.replace('Daerah Istimewa', 'DI');
-        prov.id = prov.name.replace(/\s/g, '').toLowerCase();
+        prov.id = name.replace(/\s/g, '').toLowerCase() + ' ' + metadata[name].slug;
     });
     const previewCount = hasProvincesStats ? 3 : 10;
     const preview = news.length >= previewCount;
@@ -96,6 +114,28 @@ function generate() {
     const indexHtml = mustache.render(intermediateIndex, indexData);
     mkdirp('public');
     fs.writeFileSync('public/index.html', indexHtml);
+
+    provincesStats.forEach((prov) => {
+        const name = prov.name;
+        const meta = metadata[name];
+        mkdirp('public/' + meta.slug);
+        const link = meta.website.replace('https://', '').replace('http://', '');
+        const numbers = format(prov.numbers);
+        const hospitals = allHospitals.filter((h) => h.province === name);
+        const showHospitals = hospitals.length > 0;
+        const regionData = {
+            timestamp,
+            include,
+            meta: { ...meta, link },
+            stats: { name, numbers },
+            showHospitals,
+            hospitals
+        };
+        const regionTemplate = fs.readFileSync('template/region.mustache', 'utf-8').toString();
+        const intermediateRegion = mustache.render(regionTemplate, regionData);
+        const regionHtml = mustache.render(intermediateRegion, regionData);
+        fs.writeFileSync('public/' + meta.slug + '/index.html', regionHtml);
+    });
 
     const newsData = { include, news };
     const newsTemplate = fs.readFileSync('template/news.mustache', 'utf-8').toString();

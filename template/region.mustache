@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="id">
+<head>
+<title>{{stats.name}} - KabarVirus.com</title>
+{{{include.meta}}}
+<style>
+{{{include.style-css}}}
+</style>
+</head>
+<body>
+
+<p><a href="/" class="home">&#x290E;</a></p>
+
+<section id="stat">
+<h2>{{stats.name}}</h2>
+<table>
+<thead><tr><td>Positif</td><td>Sembuh</td><td>Meninggal</td></tr></thead>
+<tbody>
+<tr class="appear monospace">
+<td><span class="box" id="infected">{{stats.numbers.infected}}</span></td>
+<td><span class="box" id="recovered">{{stats.numbers.recovered}}</span></td>
+<td><span class="box" id="fatal">{{stats.numbers.fatal}}</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<script>{{{include.animation-js}}}</script>
+
+{{#showHospitals}}
+<section>
+<table class="stripey">
+<thead><tr><td><strong>Rumah Sakit Rujukan</strong></td></tr></thead>
+<tbody>
+{{#hospitals}}
+<tr><td>{{name}}<br>{{address}}
+{{#phone}}
+<br><a href="tel:{{phone}}">{{phone}}</a>
+{{/phone}}
+</td></tr>
+{{/hospitals}}
+</tbody></table>
+</section>
+{{/showHospitals}}
+
+<p>Untuk informasi lebih rinci, lihat juga situs resmi COVID-19 untuk {{stats.name}}: <a target="_blank" rel="noopener noreferrer" href="{{meta.website}}">{{meta.link}}</a>.</p>
+
+{{{include.footer}}}
+</body>
+</html>
