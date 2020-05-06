@@ -91,6 +91,7 @@ function generate() {
     const indexTemplate = fs.readFileSync('template/index.mustache', 'utf-8').toString();
     const intermediateIndex = mustache.render(indexTemplate, indexData);
     const indexHtml = mustache.render(intermediateIndex, indexData);
+    mkdirp('public');
     fs.writeFileSync('public/index.html', indexHtml);
 
     const newsData = { include, news };
@@ -99,6 +100,8 @@ function generate() {
     const newsHtml = mustache.render(intermediateNews, newsData);
     mkdirp('public/berita');
     fs.writeFileSync('public/berita/index.html', newsHtml);
+
+    fs.copyFileSync('template/favicon.ico', 'public/favicon.ico');
 }
 
 module.exports = generate;
