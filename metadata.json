@@ -1,0 +1,206 @@
+{
+  "Aceh": {
+    "type": "province",
+    "name": "Aceh",
+    "slug": "aceh",
+    "website": "https://covid19.acehprov.go.id"
+  },
+  "Bali": {
+    "type": "province",
+    "name": "Bali",
+    "slug": "bali",
+    "website": "https://pendataan.baliprov.go.id"
+  },
+  "Banten": {
+    "type": "province",
+    "name": "Banten",
+    "slug": "banten",
+    "website": "https://infocorona.bantenprov.go.id"
+  },
+  "Bengkulu": {
+    "type": "province",
+    "name": "Bengkulu",
+    "slug": "bengkulu",
+    "website": "https://covid19.bengkuluprov.go.id"
+  },
+  "DI Yogyakarta": {
+    "type": "province",
+    "name": "DI Yogyakarta",
+    "slug": "jogja",
+    "website": "https://corona.jogjaprov.go.id"
+  },
+  "DKI Jakarta": {
+    "type": "province",
+    "name": "DKI Jakarta",
+    "slug": "jakarta",
+    "website": "https://corona.jakarta.go.id/id"
+  },
+  "Gorontalo": {
+    "type": "province",
+    "name": "Gorontalo",
+    "slug": "gorontalo",
+    "website": "https://dinkes.gorontaloprov.go.id/covid-19/"
+  },
+  "Jambi": {
+    "type": "province",
+    "name": "Jambi",
+    "slug": "jambi",
+    "website": "http://corona.jambiprov.go.id"
+  },
+  "Jawa Barat": {
+    "type": "province",
+    "name": "Jawa Barat",
+    "slug": "jabar",
+    "website": "https://pikobar.jabarprov.go.id"
+  },
+  "Jawa Tengah": {
+    "type": "province",
+    "name": "Jawa Tengah",
+    "slug": "jateng",
+    "website": "https://corona.jatengprov.go.id"
+  },
+  "Jawa Timur": {
+    "type": "province",
+    "name": "Jawa Timur",
+    "slug": "jatim",
+    "website": "https://infocovid19.jatimprov.go.id"
+  },
+  "Kalimantan Barat": {
+    "type": "province",
+    "name": "Kalimantan Barat",
+    "slug": "kalbar",
+    "website": "https://dinkes.kalbarprov.go.id/covid-19/"
+  },
+  "Kalimantan Selatan": {
+    "type": "province",
+    "name": "Kalimantan Selatan",
+    "slug": "kalsel",
+    "website": "http://corona.kalselprov.go.id/"
+  },
+  "Kalimantan Tengah": {
+    "type": "province",
+    "name": "Kalimantan Tengah",
+    "slug": "kalteng",
+    "website": "https://corona.kalteng.go.id"
+  },
+  "Kalimantan Timur": {
+    "type": "province",
+    "name": "Kalimantan Timur",
+    "slug": "kaltim",
+    "website": "https://covid19.kaltimprov.go.id/"
+  },
+  "Kalimantan Utara": {
+    "type": "province",
+    "name": "Kalimantan Utara",
+    "slug": "kaltara",
+    "website": "https://humas.kaltaraprov.go.id/berita"
+  },
+  "Kep. Bangka Belitung": {
+    "type": "province",
+    "name": "Kep. Bangka Belitung",
+    "slug": "babel",
+    "website": "https://covid19.babelprov.go.id"
+  },
+  "Kep. Riau": {
+    "type": "province",
+    "name": "Kep. Riau",
+    "slug": "kepri",
+    "website": "https://corona.kepriprov.go.id"
+  },
+  "Lampung": {
+    "type": "province",
+    "name": "Lampung",
+    "slug": "lampung",
+    "website": "http://dinkes.lampungprov.go.id/covid19"
+  },
+  "Maluku": {
+    "type": "province",
+    "name": "Maluku",
+    "slug": "maluku",
+    "website": "https://corona.malukuprov.go.id"
+  },
+  "Maluku Utara": {
+    "type": "province",
+    "name": "Maluku Utara",
+    "slug": "malut",
+    "website": "http://corona.malutprov.go.id"
+  },
+  "Nusa Tenggara Barat": {
+    "type": "province",
+    "name": "Nusa Tenggara Barat",
+    "slug": "ntb",
+    "website": "https://corona.ntbprov.go.id"
+  },
+  "Nusa Tenggara Timur": {
+    "type": "province",
+    "name": "Nusa Tenggara Timur",
+    "slug": "ntt",
+    "website": "http://nttprov.go.id"
+  },
+  "Papua": {
+    "type": "province",
+    "name": "Papua",
+    "slug": "papua",
+    "website": "https://www.papua.go.id"
+  },
+  "Papua Barat": {
+    "type": "province",
+    "name": "Papua Barat",
+    "slug": "papuabarat",
+    "website": "http://dinkes.papuabaratprov.go.id"
+  },
+  "Riau": {
+    "type": "province",
+    "name": "Riau",
+    "slug": "riau",
+    "website": "https://corona.riau.go.id"
+  },
+  "Sulawesi Barat": {
+    "type": "province",
+    "name": "Sulawesi Barat",
+    "slug": "sulbar",
+    "website": "https://covid19.sulbarprov.go.id"
+  },
+  "Sulawesi Selatan": {
+    "type": "province",
+    "name": "Sulawesi Selatan",
+    "slug": "sulsel",
+    "website": "https://covid19.sulselprov.go.id"
+  },
+  "Sulawesi Tengah": {
+    "type": "province",
+    "name": "Sulawesi Tengah",
+    "slug": "sulteng",
+    "website": "https://dinkes.sultengprov.go.id/category/covid-19/"
+  },
+  "Sulawesi Tenggara": {
+    "type": "province",
+    "name": "Sulawesi Tenggara",
+    "slug": "sultra",
+    "website": "https://dinkes.sultraprov.go.id/info-covid-19-sultra"
+  },
+  "Sulawesi Utara": {
+    "type": "province",
+    "name": "Sulawesi Utara",
+    "slug": "sulut",
+    "website": "https://corona.sulutprov.go.id/"
+  },
+  "Sumatera Barat": {
+    "type": "province",
+    "name": "Sumatera Barat",
+    "slug": "sumbar",
+    "website": "https://corona.sumbarprov.go.id"
+  },
+  "Sumatera Selatan": {
+    "type": "province",
+    "name": "Sumatera Selatan",
+    "slug": "sumsel",
+    "website": "http://corona.sumselprov.go.id"
+  },
+  "Sumatera Utara": {
+    "type": "province",
+    "name": "Sumatera Utara",
+    "slug": "sumut",
+    "website": "http://covid19.sumutprov.go.id/"
+  }
+}
