@@ -36,7 +36,11 @@ function generate() {
                       numbers: p.numbers
                   };
               });
-    const allHospitals = JSON.parse(fs.readFileSync('hospitals.json', 'utf-8').toString());
+    const allHospitals = JSON.parse(fs.readFileSync('hospitals.json', 'utf-8').toString()).map((h) => {
+        let hh = {};
+        Object.keys(h).forEach((k) => (hh[k] = typeof h[k] === 'string' ? h[k].trim() : h[k]));
+        return hh;
+    });
 
     /* news is an array of object, each with `title` and `url` properties.
        Example:
