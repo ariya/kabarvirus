@@ -109,7 +109,7 @@
     "name": "Kalimantan Utara",
     "slug": "kaltara",
     "capital": "Tanjung Selor",
-    "website": "https://humas.kaltaraprov.go.id/berita"
+    "website": "http://coronainfo.kaltaraprov.go.id/"
   },
   "Kep. Bangka Belitung": {
     "type": "province",
@@ -130,7 +130,7 @@
     "name": "Lampung",
     "slug": "lampung",
     "capital": "Bandar Lampung",
-    "website": "http://dinkes.lampungprov.go.id/covid19"
+    "website": "https://covid19.lampungprov.go.id/"
   },
   "Maluku": {
     "type": "province",
@@ -158,14 +158,14 @@
     "name": "Nusa Tenggara Timur",
     "slug": "ntt",
     "capital": "Kupang",
-    "website": "http://nttprov.go.id"
+    "website": "http://covid19.nttprov.go.id"
   },
   "Papua": {
     "type": "province",
     "name": "Papua",
     "slug": "papua",
     "capital": "Jayapura",
-    "website": "https://www.papua.go.id"
+    "website": "https://covid19.papua.go.id/"
   },
   "Papua Barat": {
     "type": "province",
