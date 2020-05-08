@@ -56,6 +56,10 @@ table td {
     padding: 5px
 }
 
+address {
+    font-style: normal;
+}
+
 footer {
     font-size: .833em;
     margin-top: 1.5em;

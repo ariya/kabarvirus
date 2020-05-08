@@ -31,10 +31,10 @@
 <thead><tr><td><strong>Rumah Sakit Rujukan</strong></td></tr></thead>
 <tbody>
 {{#hospitals}}
-<tr><td>{{name}}<br>{{address}}
-{{#phone}}
-<br><a href="tel:{{phone}}">{{phone}}</a>
-{{/phone}}
+<tr><td><address><em>{{name}}</em> (<a target="_blank" href="{{map}}">Lihat&nbsp;peta</a>)
+{{#address}}<br>{{address}}{{/address}}
+{{#phone}}<br><a href="tel:{{phone}}">{{phone}}</a>{{/phone}}
+</address>
 </td></tr>
 {{/hospitals}}
 </tbody></table>
