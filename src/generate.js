@@ -6,62 +6,6 @@ const cleanCSS = require('clean-css');
 const mustache = require('mustache');
 const uglifyJS = require('uglify-js');
 
-// https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance
-
-function damlevDistance(a, b) {
-    if (!a || a.length === 0) return !b || b.length === 0 ? 0 : b.length;
-    if (!b || b.length === 0) return a.length;
-
-    const lengthA = a.length;
-    const lengthB = b.length;
-    const maxDist = lengthA + lengthB;
-
-    let d = [];
-    d[0] = [maxDist];
-
-    for (let i = 0; i <= lengthA; i++) {
-        d[i + 1] = [];
-        d[i + 1][1] = i;
-        d[i + 1][0] = maxDist;
-    }
-    for (let i = 0; i <= lengthB; i++) {
-        d[1][i + 1] = i;
-        d[0][i + 1] = maxDist;
-    }
-
-    let da = {};
-    const sigma = a + b;
-    for (let i = 0; i < sigma.length; i++) if (!da.hasOwnProperty(sigma[i])) da[sigma[i]] = 0;
-
-    for (let i = 1; i <= lengthA; i++) {
-        let db = 0;
-        for (let j = 1; j <= lengthB; j++) {
-            let k = da[b[j - 1]];
-            let l = db;
-
-            if (a[i - 1] == b[j - 1]) {
-                d[i + 1][j + 1] = d[i][j];
-                db = j;
-            } else {
-                d[i + 1][j + 1] = Math.min(d[i][j], Math.min(d[i + 1][j], d[i][j + 1])) + 1;
-            }
-            d[i + 1][j + 1] = Math.min(d[i + 1][j + 1], d[k][l] + (i - k) + (j - l - 1));
-        }
-        da[a[i - 1]] = i;
-    }
-    return d[lengthA + 1][lengthB + 1];
-}
-
-function fuzzyMatch(list, name) {
-    const distances = list.map((p) => {
-        return {
-            name: p,
-            score: damlevDistance(p, name)
-        };
-    });
-    return distances.sort((x, y) => x.score - y.score).shift();
-}
-
 function mkdirp(dirname) {
     try {
         fs.mkdirSync(dirname);
@@ -92,25 +36,14 @@ function generate() {
                       numbers: p.numbers
                   };
               });
-    const allHospitals = JSON.parse(fs.readFileSync('hospitals.json', 'utf-8').toString())
-        .map((h) => {
-            let hh = {};
-            Object.keys(h).forEach((k) => (hh[k] = typeof h[k] === 'string' ? h[k].trim() : h[k]));
-            if (!metadata[hh.province]) {
-                const match = fuzzyMatch(Object.keys(metadata), hh.province);
-                console.log(`Missing ${hh.province}: closest match is ${match.name} [score = ${match.score}]`);
-                hh.province = match.name;
-            }
-            return hh;
-        })
-        .map((h) => {
-            const skipName = h.description.indexOf('TNI') > 0 || h.description.indexOf('Polri') > 0;
-            const q = skipName ? h.address : h.name + ' ' + h.address;
-            return {
-                ...h,
-                map: 'https://www.google.com/maps/search/' + encodeURI(q + ' Indonesia')
-            };
-        });
+    const allHospitals = JSON.parse(fs.readFileSync('hospitals.json', 'utf-8').toString()).map((h) => {
+        const skipName = h.description.indexOf('TNI') > 0 || h.description.indexOf('Polri') > 0;
+        const q = skipName ? h.address : h.name + ' ' + h.address;
+        return {
+            ...h,
+            map: 'https://www.google.com/maps/search/' + encodeURI(q + ' Indonesia')
+        };
+    });
 
     /* news is an array of object, each with `title` and `url` properties.
        Example:
@@ -195,16 +128,7 @@ function generate() {
         mkdirp('public/' + meta.slug);
         const link = meta.website.replace('https://', '').replace('http://', '');
         const numbers = format(prov.numbers);
-
-        function score(h) {
-            let s = 0;
-            if (h.address && h.address.toLowerCase().indexOf(meta.capital.toLowerCase()) > 0) s += 100;
-            if (h.name.toLowerCase().indexOf(meta.capital.toLowerCase()) > 0) s += 100;
-            if (h.description.indexOf('Kemenkes') > 0) s += 50;
-            if (h.description.indexOf('Laboratorium') > 0) s += 30;
-            return s;
-        }
-        const hospitals = allHospitals.filter((h) => h.province === name).sort((h1, h2) => score(h2) - score(h1));
+        const hospitals = allHospitals.filter((h) => h.province === name);
         const showHospitals = hospitals.length > 0;
         const regionData = {
             timestamp,
