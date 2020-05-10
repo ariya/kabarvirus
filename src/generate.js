@@ -152,6 +152,7 @@ function generate() {
     fs.writeFileSync('public/berita/index.html', newsHtml);
 
     fs.copyFileSync('template/favicon.ico', 'public/favicon.ico');
+    fs.copyFileSync('template/404.html', 'public/404.html');
 }
 
 module.exports = generate;
