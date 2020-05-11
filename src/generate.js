@@ -57,6 +57,20 @@ function generate() {
     let news = [];
     if (fs.existsSync('news.json')) {
         news = JSON.parse(fs.readFileSync('news.json', 'utf-8').toString());
+        for (let k = 0; k < 7; ++k) {
+            // Vary the most recent articles
+            for (let i = 0; i < news.length; i += 5) {
+                let sub = news.splice(i, 6);
+                sub.sort((p, q) => Math.random() - 0.5);
+                news = news.slice(0, i).concat(sub).concat(news.slice(i));
+            }
+            if (
+                news[0].source !== news[1].source &&
+                news[1].source !== news[2].source &&
+                news[0].source !== news[2].source
+            )
+                break;
+        }
     }
 
     const include = {};

@@ -9,6 +9,7 @@
     "grab-national": "curl -L -s tinyurl.com/ydaox67y | jq -f src/national.jq > national.json",
     "grab-provinces": "curl -L -s tinyurl.com/y8gbyh26 | jq -f src/provinces.jq > provinces.json",
     "grab-hospitals": "curl -L -s -o hospitals.json dekontaminasi.com/api/id/covid19/hospitals",
+    "grab-news": "curl -L -s -o news.json  dekontaminasi.com/api/id/covid19/news",
     "generate": "node src/generate.js",
     "test": "npm run validate && npm run check-format",
     "validate": "html-validate \"public/**/*.html\"",
