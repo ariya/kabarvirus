@@ -39,14 +39,14 @@
     "name": "DKI Jakarta",
     "slug": "jakarta",
     "capital": "Jakarta",
-    "website": "https://corona.jakarta.go.id/id"
+    "website": "https://corona.jakarta.go.id"
   },
   "Gorontalo": {
     "type": "province",
     "name": "Gorontalo",
     "slug": "gorontalo",
     "capital": "Gorontalo",
-    "website": "https://dinkes.gorontaloprov.go.id/covid-19/"
+    "website": "https://dinkes.gorontaloprov.go.id/covid-19"
   },
   "Jambi": {
     "type": "province",
@@ -81,14 +81,14 @@
     "name": "Kalimantan Barat",
     "slug": "kalbar",
     "capital": "Pontianak",
-    "website": "https://dinkes.kalbarprov.go.id/covid-19/"
+    "website": "https://dinkes.kalbarprov.go.id/covid-19"
   },
   "Kalimantan Selatan": {
     "type": "province",
     "name": "Kalimantan Selatan",
     "slug": "kalsel",
     "capital": "Banjarmasin",
-    "website": "http://corona.kalselprov.go.id/"
+    "website": "http://corona.kalselprov.go.id"
   },
   "Kalimantan Tengah": {
     "type": "province",
@@ -102,14 +102,14 @@
     "name": "Kalimantan Timur",
     "slug": "kaltim",
     "capital": "Samarinda",
-    "website": "https://covid19.kaltimprov.go.id/"
+    "website": "https://covid19.kaltimprov.go.id"
   },
   "Kalimantan Utara": {
     "type": "province",
     "name": "Kalimantan Utara",
     "slug": "kaltara",
     "capital": "Tanjung Selor",
-    "website": "http://coronainfo.kaltaraprov.go.id/"
+    "website": "http://coronainfo.kaltaraprov.go.id"
   },
   "Kep. Bangka Belitung": {
     "type": "province",
@@ -130,7 +130,7 @@
     "name": "Lampung",
     "slug": "lampung",
     "capital": "Bandar Lampung",
-    "website": "https://covid19.lampungprov.go.id/"
+    "website": "https://covid19.lampungprov.go.id"
   },
   "Maluku": {
     "type": "province",
@@ -165,7 +165,7 @@
     "name": "Papua",
     "slug": "papua",
     "capital": "Jayapura",
-    "website": "https://covid19.papua.go.id/"
+    "website": "https://covid19.papua.go.id"
   },
   "Papua Barat": {
     "type": "province",
@@ -200,7 +200,7 @@
     "name": "Sulawesi Tengah",
     "slug": "sulteng",
     "capital": "Palu",
-    "website": "https://dinkes.sultengprov.go.id/category/covid-19/"
+    "website": "https://dinkes.sultengprov.go.id/category/covid-19"
   },
   "Sulawesi Tenggara": {
     "type": "province",
@@ -214,7 +214,7 @@
     "name": "Sulawesi Utara",
     "slug": "sulut",
     "capital": "Manado",
-    "website": "https://corona.sulutprov.go.id/"
+    "website": "https://corona.sulutprov.go.id"
   },
   "Sumatera Barat": {
     "type": "province",
@@ -235,6 +235,6 @@
     "name": "Sumatera Utara",
     "slug": "sumut",
     "capital": "Medan",
-    "website": "http://covid19.sumutprov.go.id/"
+    "website": "http://covid19.sumutprov.go.id"
   }
 }
