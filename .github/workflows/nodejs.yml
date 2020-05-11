@@ -23,6 +23,8 @@ jobs:
 
     - run: npm run grab-data && cat national.json
 
+    - run: npm run grab-news
+
     - run: npm run generate
 
     - run: npm test
