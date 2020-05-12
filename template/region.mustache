@@ -27,8 +27,11 @@
 
 {{#showHospitals}}
 <section>
-<table class="stripey">
-<thead><tr><td><strong>Rumah Sakit Rujukan</strong></td></tr></thead>
+<table class="stripey" id="hospitals">
+<thead>
+<tr><td><strong>Rumah Sakit Rujukan</strong></td></tr>
+<tr><td><input class="nodisplay" type="text" autocomplete="off" id="search" placeholder="Cari rumah sakit" spellcheck="false"></td></tr>
+</thead>
 <tbody>
 {{#hospitals}}
 <tr><td><address><em>{{name}}</em> (<a target="_blank" href="{{map}}">Lihat&nbsp;peta</a>)
@@ -40,6 +43,7 @@
 </tbody></table>
 </section>
 {{/showHospitals}}
+<script>{{{include.locate-js}}}</script>
 
 <p>Untuk informasi lebih rinci, lihat juga situs resmi COVID-19 untuk {{stats.name}}: <a target="_blank" rel="noopener noreferrer" href="{{meta.website}}">{{meta.link}}</a>.</p>
 

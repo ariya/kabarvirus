@@ -74,7 +74,15 @@ function generate() {
     }
 
     const include = {};
-    const fnames = ['meta.mustache', 'header.mustache', 'footer.mustache', 'style.css', 'animation.js', 'filter.js'];
+    const fnames = [
+        'meta.mustache',
+        'header.mustache',
+        'footer.mustache',
+        'style.css',
+        'animation.js',
+        'filter.js',
+        'locate.js'
+    ];
     fnames.forEach((name) => {
         const filename = `template/${name}`;
         let content = fs.readFileSync(filename, 'utf-8').toString();

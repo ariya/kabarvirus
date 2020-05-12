@@ -116,7 +116,7 @@ button.outline {
     color: #333
 }
 
-table.stripey tr:nth-child(even) {
+table.stripey tbody tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
