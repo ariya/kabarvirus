@@ -97,6 +97,10 @@ footer {
     position: absolute;
 }
 
+.right {
+    text-align: right;
+}
+
 .box {
     padding: 4px 10px;
     border-radius: 4px;

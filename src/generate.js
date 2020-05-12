@@ -36,14 +36,16 @@ function generate() {
                       numbers: p.numbers
                   };
               });
-    const allHospitals = JSON.parse(fs.readFileSync('hospitals.json', 'utf-8').toString()).map((h) => {
-        const skipName = h.description.indexOf('TNI') > 0 || h.description.indexOf('Polri') > 0;
-        const q = skipName ? h.address : h.name + ' ' + h.address;
-        return {
-            ...h,
-            map: 'https://www.google.com/maps/search/' + encodeURI(q + ' Indonesia')
-        };
-    });
+    const allHospitals = !fs.existsSync('hospitals.json')
+        ? []
+        : JSON.parse(fs.readFileSync('hospitals.json', 'utf-8').toString()).map((h) => {
+              const skipName = h.description.indexOf('TNI') > 0 || h.description.indexOf('Polri') > 0;
+              const q = skipName ? h.address : h.name + ' ' + h.address;
+              return {
+                  ...h,
+                  map: 'https://www.google.com/maps/search/' + encodeURI(q + ' Indonesia')
+              };
+          });
 
     /* news is an array of object, each with `title` and `url` properties.
        Example:
@@ -151,13 +153,12 @@ function generate() {
         const link = meta.website.replace('https://', '').replace('http://', '');
         const numbers = format(prov.numbers);
         const hospitals = allHospitals.filter((h) => h.province === name);
-        const showHospitals = hospitals.length > 0;
         const regionData = {
             timestamp,
             include,
             meta: { ...meta, link },
             stats: { name, numbers },
-            showHospitals,
+            totalHospitals: hospitals.length,
             hospitals
         };
         const regionTemplate = fs.readFileSync('template/region.mustache', 'utf-8').toString();
