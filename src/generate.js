@@ -23,19 +23,8 @@ function generate() {
             console.warn(`Incompatible slug (perhaps website has changed?): ${region.slug} vs ${match[1]}`);
     });
 
-    const nationalStats = JSON.parse(fs.readFileSync('national.json', 'utf-8').toString());
-    const hasProvincesStats = fs.existsSync('provinces.json');
-    const provincesStats = !hasProvincesStats
-        ? []
-        : JSON.parse(fs.readFileSync('provinces.json', 'utf-8').toString())
-              .sort((p, q) => q.numbers.infected - p.numbers.infected)
-              .map((p) => {
-                  return {
-                      type: p.type,
-                      name: p.name.replace('Daerah Istimewa', 'DI').replace('Kepulauan', 'Kep.'),
-                      numbers: p.numbers
-                  };
-              });
+    const stats = JSON.parse(fs.readFileSync('stats.json', 'utf-8').toString());
+
     const allHospitals = !fs.existsSync('hospitals.json')
         ? []
         : JSON.parse(fs.readFileSync('hospitals.json', 'utf-8').toString()).map((h) => {
@@ -128,7 +117,6 @@ function generate() {
         return numbers;
     }
 
-    const stats = { ...nationalStats, regions: provincesStats };
     stats.numbers = format(stats.numbers);
     stats.regions.forEach((prov) => {
         const name = prov.name;
@@ -136,17 +124,17 @@ function generate() {
         prov.numbers = format(prov.numbers);
         prov.id = name.replace(/\s/g, '').toLowerCase() + ' ' + metadata[name].slug;
     });
-    const previewCount = hasProvincesStats ? 3 : 10;
+    const previewCount = 3;
     const preview = news.length >= previewCount;
     const snippets = preview ? news.slice(0, previewCount) : [];
-    const indexData = { timestamp, include, stats, hasProvincesStats, preview, snippets };
+    const indexData = { timestamp, include, stats, preview, snippets };
     const indexTemplate = fs.readFileSync('template/index.mustache', 'utf-8').toString();
     const intermediateIndex = mustache.render(indexTemplate, indexData);
     const indexHtml = mustache.render(intermediateIndex, indexData);
     mkdirp('public');
     fs.writeFileSync('public/index.html', indexHtml);
 
-    provincesStats.forEach((prov) => {
+    stats.regions.forEach((prov) => {
         const name = prov.name;
         const meta = metadata[name];
         mkdirp('public/' + meta.slug);

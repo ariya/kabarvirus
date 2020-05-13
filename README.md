@@ -20,10 +20,7 @@ Tujuan KabarVirus adalah untuk menyajikan informasi _terpenting_ soal sebaran CO
 * _Load time_ (menurut [Pingdom](https://tools.pingdom.com/)): 0,7 detik atau kurang
 * Tetap berfungsi walaupun JavaScript dimatikan
 
-Yang diperlukan (versi minimum):
-* [Node.js](https://nodejs.org) versi 10
-* [curl](https://curl.haxx.se) versi 7.58
-* [jq](https://stedolan.github.io/jq/) versi 1.5
+Yang diperlukan (versi minimum): [Node.js](https://nodejs.org) versi 10, [curl](https://curl.haxx.se) versi 7.58.
 
 ```
 npm install
@@ -48,12 +45,7 @@ The goal of KabarVirus is to show the _important_ aspect of COVID-19 spread in I
 * _Load time_ (according [Pingdom](https://tools.pingdom.com/)): 0.7 sec or less
 * Graceful degradation when JavaScript is disabled
 
-Minimum requirements:
-* [Node.js](https://nodejs.org) version 10
-* [curl](https://curl.haxx.se) version 7.58
-* [jq](https://stedolan.github.io/jq/) version 1.5
-
-
+Minimum requirements: [Node.js](https://nodejs.org) version 10, [curl](https://curl.haxx.se) version 7.58.
 
 ```
 npm install

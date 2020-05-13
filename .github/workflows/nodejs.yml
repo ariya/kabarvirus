@@ -21,7 +21,7 @@ jobs:
 
     - run: npm ci
 
-    - run: npm run grab-data && cat national.json
+    - run: npm run grab-data
 
     - run: npm run grab-news
 
