@@ -5,7 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "grab-data": "npm run grab-stats && npm run grab-hospitals",
+    "build": "npm run grab-stats && npm run grab-hospitals && npm run grab-news && npm run generate",
     "grab-stats": "curl -L -s -o stats.json dekontaminasi.com/api/id/covid19/stats",
     "grab-hospitals": "curl -L -s -o hospitals.json dekontaminasi.com/api/id/covid19/hospitals",
     "grab-news": "curl -L -s -o news.json  dekontaminasi.com/api/id/covid19/news",

@@ -21,11 +21,7 @@ jobs:
 
     - run: npm ci
 
-    - run: npm run grab-data
-
-    - run: npm run grab-news
-
-    - run: npm run generate
+    - run: npm run build
 
     - run: npm test
 
