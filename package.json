@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node src/server.js",
     "build": "npm run grab-stats && npm run grab-hospitals && npm run grab-news && npm run generate",
-    "grab-stats": "curl -L -s -o stats.json dekontaminasi.com/api/id/covid19/stats",
+    "grab-stats": "npm run grab-stats-data && npm run grab-stats-timestamp",
+    "grab-stats-data": "curl -L -s -o stats.json dekontaminasi.com/api/id/covid19/stats",
+    "grab-stats-timestamp": "curl -L -s -o update.timestamp dekontaminasi.com/api/id/covid19/stats.timestamp",
     "grab-hospitals": "curl -L -s -o hospitals.json dekontaminasi.com/api/id/covid19/hospitals",
     "grab-news": "curl -L -s -o news.json  dekontaminasi.com/api/id/covid19/news",
     "generate": "node src/generate.js",

@@ -98,12 +98,10 @@ function generate() {
             const jakartaTZOffset = 7;
             const updateDateTime = new Date(unixEpoch + jakartaTZOffset * 60 * 60 * 1000);
             const monthNames = 'JanFebMarAprMeiJunJulAgtSepOktNovDes';
-            let minutes = updateDateTime.getMinutes().toString();
-            if (minutes.length < 2) minutes = '0' + minutes;
             timestamp = [
                 updateDateTime.getDate(),
                 monthNames.substr(3 * updateDateTime.getMonth(), 3),
-                updateDateTime.getHours() + ':' + minutes,
+                updateDateTime.toISOString().substr(11, 5),
                 'WIB'
             ].join(' ');
         }
