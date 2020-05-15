@@ -36,15 +36,7 @@ function generate() {
               };
           });
 
-    /* news is an array of object, each with `title` and `url` properties.
-       Example:
-         [
-           {
-            "title": "Pemerintah Setujui Status PSBB untuk Tangerang dan Tangsel",
-            "url": "https://nasional.tempo.co/read/1330740/pemerintah-setujui-status-psbb-untuk-tangerang-dan-tangsel"
-           }
-        ]
-    */
+    // news and hoaxes: an array of object, each with `title` and `url` properties.
     let news = [];
     if (fs.existsSync('news.json')) {
         news = JSON.parse(fs.readFileSync('news.json', 'utf-8').toString());
@@ -63,6 +55,9 @@ function generate() {
                 break;
         }
     }
+    const allHoaxes = !fs.existsSync('hoaxes.json')
+        ? []
+        : JSON.parse(fs.readFileSync('hoaxes.json', 'utf-8').toString());
 
     const include = {};
     const fnames = [
@@ -125,7 +120,9 @@ function generate() {
     const previewCount = 3;
     const preview = news.length >= previewCount;
     const snippets = preview ? news.slice(0, previewCount) : [];
-    const indexData = { timestamp, include, stats, preview, snippets };
+    const hoaxes = allHoaxes.slice(0, 3);
+    const hoaxesCount = hoaxes.length;
+    const indexData = { timestamp, include, stats, preview, snippets, hoaxesCount, hoaxes };
     const indexTemplate = fs.readFileSync('template/index.mustache', 'utf-8').toString();
     const intermediateIndex = mustache.render(indexTemplate, indexData);
     const indexHtml = mustache.render(intermediateIndex, indexData);

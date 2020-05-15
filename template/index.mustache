@@ -51,6 +51,17 @@
 </section>
 {{/preview}}
 
+{{#hoaxesCount}}
+<section class="news">
+<p>Awas berita hoaks (<a href="https://turnbackhoax.id">selengkapnya</a>):</p>
+<ul>
+{{#hoaxes}}
+<li><a target="_blank" rel="noopener noreferrer" href="{{url}}">{{title}}</a></li>
+{{/hoaxes}}
+</ul>
+</section>
+{{/hoaxesCount}}
+
 {{{include.footer}}}
 </body>
 </html>
