@@ -35,6 +35,10 @@
     document.addEventListener('DOMContentLoaded', function (event) {
         try {
             setupLocator();
+            if (/iP(hone|od|ad)/.test(navigator.platform))
+                [].slice.call(document.getElementsByClassName('map')).forEach(function (el) {
+                    el.href = el.href.replace('maps.google', 'maps.apple');
+                });
         } catch (e) {}
     });
 })();
