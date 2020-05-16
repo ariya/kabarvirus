@@ -32,7 +32,7 @@ function generate() {
               const q = skipName ? h.address : h.name + ' ' + h.address;
               return {
                   ...h,
-                  map: 'https://maps.google.com/maps?q=' + encodeURI(q + ' Indonesia')
+                  map: 'https://www.google.com/maps/search/' + encodeURI(q + ' Indonesia')
               };
           });
 
