@@ -1,0 +1,17 @@
+{
+    "name": "KabarVirus.com",
+    "short_name": "Kabar Virus",
+    "start_url": "/?utm_source=homescreen",
+    "lang": "id",
+    "display": "standalone",
+    "background_color": "#FFFFFF",
+    "theme_color": "#536878",
+    "description": "KabarVirus.com menyajikan perkembangan COVID-19 di Indonesia dengan penampilan ringan dan sederhana agar tidak menghamburkan kuota data. Kode sumber: github.com/ariya/kabarvirus.",
+    "icons": [
+        {
+            "src": "samplewiki.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ]
+}
