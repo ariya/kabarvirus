@@ -15,16 +15,6 @@ function mkdirp(dirname) {
 }
 
 function generate() {
-    const webmanifest = fs.readFileSync('manifest.json', 'utf-8');
-    fs.writeFileSync('public/manifest.json', webmanifest);
-
-    const serviceWorker = fs.readFileSync('template/serviceWorker.js', 'utf-8');
-    fs.writeFileSync('public/serviceWorker.js', serviceWorker);
-
-    fs.copyFile('samplewiki.png', 'public/samplewiki.png', (err) => {
-        if (err) throw err;
-    });
-
     const metadata = JSON.parse(fs.readFileSync('metadata.json', 'utf-8').toString());
     Object.keys(metadata).forEach((key) => {
         const region = metadata[key];
@@ -139,6 +129,16 @@ function generate() {
     const indexHtml = mustache.render(intermediateIndex, indexData);
     mkdirp('public');
     fs.writeFileSync('public/index.html', indexHtml);
+
+    const webmanifest = fs.readFileSync('manifest.json', 'utf-8');
+    fs.writeFileSync('public/manifest.json', webmanifest);
+
+    const serviceWorker = fs.readFileSync('template/serviceWorker.js', 'utf-8');
+    fs.writeFileSync('public/serviceWorker.js', serviceWorker);
+
+    fs.copyFile('samplewiki.png', 'public/samplewiki.png', (err) => {
+        if (err) throw err;
+    });
 
     stats.regions.forEach((prov) => {
         const name = prov.name;
