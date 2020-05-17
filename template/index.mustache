@@ -5,6 +5,8 @@
 <style>
 {{{include.style-css}}}
 </style>
+<link rel="manifest" href="/manifest.webmanifest">
+<script>{{{include.registerSW-js}}}</script>
 </head>
 <body>
 {{{include.header}}}
@@ -22,7 +24,6 @@
 </table>
 </section>
 <script>{{{include.animation-js}}}</script>
-
 <section id="details">
 <table id="provinces" class="stripey">
 <thead>
