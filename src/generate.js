@@ -21,12 +21,12 @@ function generate() {
     const serviceWorker = fs.readFileSync('template/serviceWorker.js', 'utf-8');
     fs.writeFileSync('public/serviceWorker.js', serviceWorker);
 
-    fs.copyFile('samplewiki.png', 'public/samplewiki.png', err => {
+    fs.copyFile('samplewiki.png', 'public/samplewiki.png', (err) => {
         if (err) throw err;
     });
 
     const metadata = JSON.parse(fs.readFileSync('metadata.json', 'utf-8').toString());
-    Object.keys(metadata).forEach(key => {
+    Object.keys(metadata).forEach((key) => {
         const region = metadata[key];
         const match = /([a-z]+)prov/.exec(region.website);
         if (match && match.length === 2 && region.slug !== match[1])
@@ -37,7 +37,7 @@ function generate() {
 
     const allHospitals = !fs.existsSync('hospitals.json')
         ? []
-        : JSON.parse(fs.readFileSync('hospitals.json', 'utf-8').toString()).map(h => {
+        : JSON.parse(fs.readFileSync('hospitals.json', 'utf-8').toString()).map((h) => {
               const skipName = h.description.indexOf('TNI') > 0 || h.description.indexOf('Polri') > 0;
               const q = skipName ? h.address : h.name + ' ' + h.address;
               return {
@@ -80,7 +80,7 @@ function generate() {
         'locate.js',
         'registerSW.js'
     ];
-    fnames.forEach(name => {
+    fnames.forEach((name) => {
         const filename = `template/${name}`;
         let content = fs.readFileSync(filename, 'utf-8').toString();
         const key = name.replace('.mustache', '').replace('.', '-');
@@ -114,7 +114,7 @@ function generate() {
     }
 
     function format(numbers) {
-        ['infected', 'recovered', 'fatal'].forEach(key => {
+        ['infected', 'recovered', 'fatal'].forEach((key) => {
             // Adapted from https://stackoverflow.com/a/2901298/2399252
             numbers[key] = numbers[key].toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
         });
@@ -122,7 +122,7 @@ function generate() {
     }
 
     stats.numbers = format(stats.numbers);
-    stats.regions.forEach(prov => {
+    stats.regions.forEach((prov) => {
         const name = prov.name;
         prov.url = '/' + metadata[name].slug + '/';
         prov.numbers = format(prov.numbers);
@@ -140,13 +140,13 @@ function generate() {
     mkdirp('public');
     fs.writeFileSync('public/index.html', indexHtml);
 
-    stats.regions.forEach(prov => {
+    stats.regions.forEach((prov) => {
         const name = prov.name;
         const meta = metadata[name];
         mkdirp('public/' + meta.slug);
         const link = meta.website.replace('https://', '').replace('http://', '');
         const numbers = format(prov.numbers);
-        const hospitals = allHospitals.filter(h => h.province === name);
+        const hospitals = allHospitals.filter((h) => h.province === name);
         const regionData = {
             timestamp,
             include,
