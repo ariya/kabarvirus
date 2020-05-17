@@ -15,6 +15,12 @@ function mkdirp(dirname) {
 }
 
 function generate() {
+    const webmanifest = fs.readFileSync('manifest.webmanifest', 'utf-8');
+    fs.writeFileSync('public/manifest.webmanifest', webmanifest);
+
+    const serviceWorker = fs.readFileSync('template/serviceWorker.js', 'utf-8');
+    fs.writeFileSync('public/serviceWorker.js', serviceWorker);
+
     const metadata = JSON.parse(fs.readFileSync('metadata.json', 'utf-8').toString());
     Object.keys(metadata).forEach((key) => {
         const region = metadata[key];
@@ -67,7 +73,8 @@ function generate() {
         'style.css',
         'animation.js',
         'filter.js',
-        'locate.js'
+        'locate.js',
+        'registerSW.js',
     ];
     fnames.forEach((name) => {
         const filename = `template/${name}`;
