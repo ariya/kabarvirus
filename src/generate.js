@@ -129,6 +129,13 @@ function generate() {
     mkdirp('public');
     fs.writeFileSync('public/index.html', indexHtml);
 
+    const webmanifest = fs.readFileSync('manifest.json', 'utf-8');
+    fs.writeFileSync('public/manifest.json', webmanifest);
+
+    fs.copyFile('samplewiki.png', 'public/samplewiki.png', (err) => {
+        if (err) throw err;
+    });
+
     stats.regions.forEach((prov) => {
         const name = prov.name;
         const meta = metadata[name];
