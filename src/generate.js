@@ -145,7 +145,7 @@ function generate() {
 
     copyFiles([
         ['manifest.json', 'public/manifest.json'],
-        ['samplewiki.png', 'public/samplewiki.png']
+        ['kvicon.png', 'public/kvicon.png']
     ]);
 
     stats.regions.forEach((prov) => {

@@ -9,8 +9,8 @@
     "description": "KabarVirus.com menyajikan perkembangan COVID-19 di Indonesia dengan penampilan ringan dan sederhana agar tidak menghamburkan kuota data. Kode sumber: github.com/ariya/kabarvirus.",
     "icons": [
         {
-            "src": "samplewiki.png",
-            "sizes": "144x144",
+            "src": "kvicon.png",
+            "sizes": "180x180",
             "type": "image/png"
         }
     ]
