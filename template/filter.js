@@ -1,4 +1,6 @@
 (function () {
+    var selectiveStore = JSON.parse(window.localStorage.getItem('selective'));
+
     var $ = function (id) {
         return document.getElementById(id);
     };
@@ -8,18 +10,25 @@
         else el.classList.remove(className);
     };
     var selective = false;
+    if (selectiveStore && typeof selectiveStore === 'boolean') {
+        selective = selectiveStore;
+    }
     var setupSelective = function () {
         var btn = $('selective');
         reclass('selective', false, 'nodisplay');
-        function toggleSelective() {
-            selective = !selective;
+        function setBtnState() {
             reclass('provinces', selective, 'selective');
             reclass('selective', !selective, 'outline');
             btn.innerHTML = selective ? '&#x25BC; Tampilkan Semua Provinsi' : '&#x25B2; Hanya 7 Besar';
             btn.blur();
         }
+        function toggleSelective() {
+            selective = !selective;
+            window.localStorage.setItem('selective', selective);
+            setBtnState();
+        }
         btn.addEventListener('click', toggleSelective);
-        toggleSelective();
+        setBtnState();
     };
     var setupFilter = function () {
         reclass('search', false, 'nodisplay');
