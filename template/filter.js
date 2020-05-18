@@ -9,7 +9,7 @@
         if (condition) el.classList.add(className);
         else el.classList.remove(className);
     };
-    var selective = false;
+    var selective = true;
     if (selectiveStore && typeof selectiveStore === 'boolean') {
         selective = selectiveStore;
     }
