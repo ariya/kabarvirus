@@ -14,6 +14,20 @@ function mkdirp(dirname) {
     }
 }
 
+function copyFiles(files) {
+    try {
+        files.map((fileInfo) => {
+            const [origin, target] = fileInfo;
+
+            fs.copyFile(origin, target, (err) => {
+                if (err) throw err;
+            });
+        });
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 function generate() {
     const metadata = JSON.parse(fs.readFileSync('metadata.json', 'utf-8').toString());
     Object.keys(metadata).forEach((key) => {
@@ -129,12 +143,10 @@ function generate() {
     mkdirp('public');
     fs.writeFileSync('public/index.html', indexHtml);
 
-    const webmanifest = fs.readFileSync('manifest.json', 'utf-8');
-    fs.writeFileSync('public/manifest.json', webmanifest);
-
-    fs.copyFile('samplewiki.png', 'public/samplewiki.png', (err) => {
-        if (err) throw err;
-    });
+    copyFiles([
+        ['manifest.json', 'public/manifest.json'],
+        ['samplewiki.png', 'public/samplewiki.png']
+    ]);
 
     stats.regions.forEach((prov) => {
         const name = prov.name;
