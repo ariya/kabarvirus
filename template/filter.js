@@ -1,6 +1,4 @@
 (function () {
-    var selectiveStore = JSON.parse(window.localStorage.getItem('selective'));
-
     var $ = function (id) {
         return document.getElementById(id);
     };
@@ -10,10 +8,9 @@
         else el.classList.remove(className);
     };
     var selective = true;
-    if (selectiveStore && typeof selectiveStore === 'boolean') {
-        selective = selectiveStore;
-    }
     var setupSelective = function () {
+        var savedSelective = JSON.parse(window.localStorage.getItem('selective'));
+        if (typeof savedSelective === 'boolean') selective = savedSelective;
         var btn = $('selective');
         reclass('selective', false, 'nodisplay');
         function setBtnState() {
