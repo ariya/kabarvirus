@@ -161,7 +161,6 @@ function generate() {
     fs.copyFileSync('template/404.html', 'public/404.html');
     fs.copyFileSync('template/manifest.json', 'public/manifest.json');
     fs.copyFileSync('template/kvicon.png', 'public/kvicon.png');
-
 }
 
 module.exports = generate;
