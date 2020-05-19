@@ -14,20 +14,6 @@ function mkdirp(dirname) {
     }
 }
 
-function copyFiles(files) {
-    try {
-        files.map((fileInfo) => {
-            const [origin, target] = fileInfo;
-
-            fs.copyFile(origin, target, (err) => {
-                if (err) throw err;
-            });
-        });
-    } catch (err) {
-        console.log(err);
-    }
-}
-
 function generate() {
     const metadata = JSON.parse(fs.readFileSync('metadata.json', 'utf-8').toString());
     Object.keys(metadata).forEach((key) => {
@@ -143,11 +129,6 @@ function generate() {
     mkdirp('public');
     fs.writeFileSync('public/index.html', indexHtml);
 
-    copyFiles([
-        ['manifest.json', 'public/manifest.json'],
-        ['kvicon.png', 'public/kvicon.png']
-    ]);
-
     stats.regions.forEach((prov) => {
         const name = prov.name;
         const meta = metadata[name];
@@ -178,6 +159,9 @@ function generate() {
 
     fs.copyFileSync('template/favicon.ico', 'public/favicon.ico');
     fs.copyFileSync('template/404.html', 'public/404.html');
+    fs.copyFileSync('template/manifest.json', 'public/manifest.json');
+    fs.copyFileSync('template/kvicon.png', 'public/kvicon.png');
+
 }
 
 module.exports = generate;
