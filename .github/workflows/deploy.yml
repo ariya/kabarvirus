@@ -21,6 +21,8 @@ jobs:
     - run: npm run build
     - run: npm test
 
+    - run: cat stats.json | jq .numbers
+
     - run: npm install -g netlify-cli@2.50.0
     - run: netlify deploy --prod --dir=public
       env:
