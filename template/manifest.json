@@ -7,7 +7,7 @@
     "display": "minimal-ui",
     "background_color": "#FFFFFF",
     "theme_color": "#536878",
-    "description": "KabarVirus.com menyajikan perkembangan COVID-19 di Indonesia dengan penampilan ringan dan sederhana agar tidak menghamburkan kuota data.",
+    "description": "Perkembangan COVID-19 di Indonesia",
     "icons": [
         {
             "src": "kvicon.png",
