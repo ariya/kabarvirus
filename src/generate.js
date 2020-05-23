@@ -106,7 +106,10 @@ function generate() {
     const previewCount = 3;
     const preview = news.length >= previewCount;
     const snippets = preview ? news.slice(0, previewCount) : [];
-    const hoaxes = allHoaxes.slice(0, 3);
+    const hoaxes = allHoaxes
+        .slice(0, 5)
+        .sort((p, q) => Math.random() - 0.5)
+        .slice(0, 3);
     const hoaxesCount = hoaxes.length;
     const indexData = { timestamp, include, stats, preview, snippets, hoaxesCount, hoaxes };
     const indexTemplate = fs.readFileSync('template/index.mustache', 'utf-8').toString();
