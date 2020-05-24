@@ -30,7 +30,7 @@ npm start
 
 lalu buka alamat `localhost:8080`.
 
-**CATATAN**: Data paparan COVID-19 diekstrak dari [dashboard resmi ArcGIS milik BNPB](https://inacovid19.maps.arcgis.com) (Badan Nasional Penanggulangan Bencana).
+**CATATAN**: Data paparan COVID-19 diekstrak dari [dashboard resmi ArcGIS milik BNPB](https://inacovid19.maps.arcgis.com) (Badan Nasional Penanggulangan Bencana). Untuk lebih rincinya, lihat juga [github.com/ariya/dekontaminasi](https://github.com/ariya/dekontaminasi).
 
 <hr>
 
@@ -55,4 +55,5 @@ npm start
 
 and then open `localhost:8080`.
 
-**NOTE**: The information on COVID-19 spread is extracted from [the official ArcGIS dashboard of BNPB](https://inacovid19.maps.arcgis.com/) (National Disaster Mitigation Agency).
+**NOTE**: The information on COVID-19 spread is extracted from [the official ArcGIS dashboard of BNPB](https://inacovid19.maps.arcgis.com/) (National Disaster Mitigation Agency). For more details, refer to [github.com/ariya/dekontaminasi](https://github.com/ariya/dekontaminasi).
+
