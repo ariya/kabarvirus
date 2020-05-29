@@ -35,7 +35,11 @@ function generate() {
           });
 
     // news and hoaxes: an array of object, each with `title` and `url` properties.
-    let news = !fs.existsSync('news.json') ? [] : JSON.parse(fs.readFileSync('news.json', 'utf-8').toString());
+    let news = !fs.existsSync('news.json')
+        ? []
+        : JSON.parse(fs.readFileSync('news.json', 'utf-8').toString()).filter(
+              (n) => n.url.indexOf('turnbackhoax.id') < 0
+          );
     for (let i = 0; i < news.length; i += 5) {
         let sub = news.splice(i, 6);
         sub.sort((p, q) => Math.random() - 0.5);
