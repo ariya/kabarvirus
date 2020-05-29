@@ -3,6 +3,7 @@
 [![GitHub license](https://img.shields.io/github/license/ariya/kabarvirus)](https://github.com/ariya/kabarvirus/blob/master/LICENSE)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ariya/kabarvirus)
 [![Node.js CI](https://github.com/ariya/kabarvirus/workflows/Node.js%20CI/badge.svg)](https://github.com/ariya/kabarvirus/actions)
+[![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m785072355-3f442d6ed3d34f68ab65011e)](https://kabarvirus.com)
 
 
 [Bahasa Indonesia](#indonesian) | [English](#english)
