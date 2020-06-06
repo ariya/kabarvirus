@@ -73,7 +73,7 @@ function generate() {
         include[key] = content;
     });
 
-    let timestamp = null;
+    let updateTimestamp = null;
     if (fs.existsSync('update.timestamp')) {
         const updateContent = fs.readFileSync('update.timestamp', 'utf-8').toString().trim();
         const unixEpoch = parseInt(updateContent, 10);
@@ -83,7 +83,7 @@ function generate() {
             const jakartaTZOffset = 7;
             const updateDateTime = new Date(unixEpoch + jakartaTZOffset * 60 * 60 * 1000);
             const monthNames = 'JanFebMarAprMeiJunJulAgtSepOktNovDes';
-            timestamp = [
+            updateTimestamp = [
                 updateDateTime.getDate(),
                 monthNames.substr(3 * updateDateTime.getMonth(), 3),
                 updateDateTime.toISOString().substr(11, 5),
@@ -115,7 +115,7 @@ function generate() {
         .sort((p, q) => Math.random() - 0.5)
         .slice(0, 3);
     const hoaxesCount = hoaxes.length;
-    const indexData = { timestamp, include, stats, preview, snippets, hoaxesCount, hoaxes };
+    const indexData = { updateTimestamp, include, stats, preview, snippets, hoaxesCount, hoaxes };
     const indexTemplate = fs.readFileSync('template/index.mustache', 'utf-8').toString();
     const intermediateIndex = mustache.render(indexTemplate, indexData);
     const indexHtml = mustache.render(intermediateIndex, indexData);
@@ -130,7 +130,7 @@ function generate() {
         const numbers = format(prov.numbers);
         const hospitals = allHospitals.filter((h) => h.province === name);
         const regionData = {
-            timestamp,
+            updateTimestamp,
             include,
             meta: { ...meta, link },
             stats: { name, numbers },
