@@ -194,3 +194,7 @@ section.news li::before {
     width: 0.4em;
     margin-left: 0;
 }
+
+.tel {
+  speak: digits;
+}
