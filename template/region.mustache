@@ -34,9 +34,9 @@
 </thead>
 <tbody>
 {{#hospitals}}
-<tr><td><address><em>{{name}}</em> (<a target="_blank" href="{{map}}">Lihat&nbsp;peta</a>)
-{{#address}}<br>{{address}}{{/address}}
-{{#phone}}<br><a href="tel:{{phone}}">{{phone}}</a>{{/phone}}
+<tr><td><address class="vcard"><em class="org">{{name}}</em> (<a target="_blank" href="{{map}}">Lihat&nbsp;peta</a>)
+{{#address}}<br><span class="adr">{{address}}</span>{{/address}}
+{{#phone}}<br><a class="tel" href="tel:{{phone}}">{{phone}}</a>{{/phone}}
 </address>
 </td></tr>
 {{/hospitals}}
