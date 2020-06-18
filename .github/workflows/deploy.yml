@@ -25,7 +25,7 @@ jobs:
 
     - run: cat stats.json | jq .numbers
 
-    - run: npm install -g netlify-cli@2.50.0
+    - run: npm install -g netlify-cli@2.54.0
     - run: netlify deploy --prod --dir=public
       env:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
