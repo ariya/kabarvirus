@@ -14,7 +14,7 @@
     "grab-hoaxes": "curl -L -s -o hoaxes.json  dekontaminasi.com/api/id/covid19/hoaxes",
     "generate": "node src/generate.js",
     "test": "npm run validate && npm run check-format",
-    "validate": "html-validate \"public/**/*.html\"",
+    "validate": "html-validate --rule no-deprecated-attr:1 \"public/**/*.html\"",
     "check-format": "prettier --check \"**/*.js\"",
     "format-code": "prettier --write \"**/*.js\""
   },
