@@ -24,23 +24,6 @@
 </section>
 <script>{{{include.animation-js}}}</script>
 
-<section id="details">
-<table id="provinces" class="stripey">
-<thead>
-<tr>
-<td id="filter"><input class="nodisplay" type="text" autocomplete="off" id="search" placeholder="Cari provinsi" spellcheck="false"></td>
-<td>Positif</td><td>Meninggal</td></tr>
-</thead>
-<tbody>
-{{#stats.regions}}
-<tr id="{{id}}"><td><a href="{{url}}">{{name}}</a></td><td align="right">{{numbers.infected}}</td><td align="right">{{numbers.fatal}}</td></tr>
-{{/stats.regions}}
-</tbody>
-</table>
-<button type="button" id="selective" class="primary nodisplay"></button>
-</section>
-<script>{{{include.filter-js}}}</script>
-
 {{#preview}}
 <section class="news">
 <p>Berita terkait (<a href="/berita">selengkapnya</a>):</p>
@@ -62,6 +45,16 @@
 </ul>
 </section>
 {{/hoaxesCount}}
+
+<section id="details">
+<p>Cari <strong>rumah sakit</strong> di:</p>
+<blockquote>
+{{#stats.regions}}
+<a href="{{url}}">{{name}}</a> &middot;
+{{/stats.regions}}
+</blockquote>
+</section>
+
 
 {{{include.footer}}}
 </body>

@@ -107,7 +107,7 @@ function generate() {
         prov.numbers = format(prov.numbers);
         prov.id = name.replace(/\s/g, '').toLowerCase() + ' ' + metadata[name].slug;
     });
-    const previewCount = 3;
+    const previewCount = 5;
     const preview = news.length >= previewCount;
     const snippets = preview ? news.slice(0, previewCount) : [];
     const hoaxes = allHoaxes
