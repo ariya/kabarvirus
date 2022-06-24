@@ -30,7 +30,7 @@ function generate() {
         : JSON.parse(fs.readFileSync('hospitals.json', 'utf-8').toString()).map((h) => {
               return {
                   ...h,
-                  map: 'https://www.google.com/maps/search/' + encodeURI(h.address + ' Indonesia')
+                  map: 'https://www.google.com/maps/search/' + encodeURI(h.name + ' ' + h.address + ' Indonesia')
               };
           });
 
