@@ -101,7 +101,7 @@ function generate() {
     });
     const previewCount = 5;
     const preview = news.length >= previewCount;
-    const snippets = preview ? news.slice(0, previewCount) : [];
+    const snippets = preview ? news.filter((n) => n.title.length < 70).slice(0, previewCount) : [];
     const hoaxes = allHoaxes
         .slice(0, 5)
         .sort((p, q) => Math.random() - 0.5)
