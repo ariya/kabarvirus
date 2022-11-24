@@ -26,7 +26,7 @@
   "license": "MIT",
   "devDependencies": {
     "alive-server": "^1.2.9",
-    "chokidar": "^3.3.1",
+    "chokidar": "^3.5.3",
     "clean-css": "^4.2.3",
     "html-validate": "^7.10.0",
     "mustache": "^4.0.1",
