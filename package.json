@@ -28,7 +28,7 @@
     "alive-server": "^1.2.9",
     "chokidar": "^3.3.1",
     "clean-css": "^4.2.3",
-    "html-validate": "^2.20.0",
+    "html-validate": "^7.10.0",
     "mustache": "^4.0.1",
     "prettier": "^2.0.2",
     "uglify-js": "^3.8.1"
