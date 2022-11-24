@@ -1,5 +1,5 @@
 const chokidar = require('chokidar');
-const liveServer = require('live-server');
+const liveServer = require('alive-server');
 
 const generate = require('./generate');
 
